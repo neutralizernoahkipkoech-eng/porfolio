@@ -10,7 +10,7 @@ export async function POST(request: Request) {
     await resend.emails.send({
       from: 'Portfolio Contact <onboarding@resend.dev>',
       to: ['neutralizernoahkipkoech@gmail.com'],
-        replyTo: data.email,  // This tells Gmail to reply directly to the visitor!
+        replyTo: email,  // This tells Gmail to reply directly to the visitor!
       subject: `New Message from ${name}`,
       html: `
         <h2>New Contact Form Submission</h2>
