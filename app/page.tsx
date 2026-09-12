@@ -89,6 +89,9 @@ export default function Home() {
               poster="/images/working.png"
               className="w-full h-[300px] sm:h-[350px] lg:h-[450px] object-cover rounded-2xl"
               playsInline
+              muted
+              loop
+              autoPlay
               onEnded={() => setIsPlaying(false)}
             />
             {!isPlaying && (
