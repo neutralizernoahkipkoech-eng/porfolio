@@ -139,7 +139,7 @@ export default function Home() {
               <p className="text-gray-400">A full-stack AI chat application with secure authentication, real-time responses, and automated email notifications.</p>
             </div>
             <div className="flex gap-3">
-              <a href="https://noahkipkkoech.com" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-primary text-background font-semibold rounded-lg hover:bg-cyan-400 transition flex items-center gap-2">
+              <a href="https://customer-support-widget.netlify.app" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-primary text-background font-semibold rounded-lg hover:bg-cyan-400 transition flex items-center gap-2">
                 Live Demo <ExternalLink size={16} />
               </a>
               <a href="https://github.com/neutralizernoahkipkoech-eng/customer-support-widget" target="_blank" rel="noopener noreferrer" className="px-4 py-2 border border-secondary rounded-lg hover:bg-secondary transition flex items-center gap-2">
