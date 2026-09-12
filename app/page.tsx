@@ -7,6 +7,7 @@ import ContactForm from "../components/ContactForm";
 export default function Home() {
   // Video Player State
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(true); // NEW: Mute state
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const togglePlay = () => {
@@ -89,11 +90,20 @@ export default function Home() {
               poster="/images/working.png"
               className="w-full h-[300px] sm:h-[350px] lg:h-[450px] object-cover rounded-2xl"
               playsInline
-              muted
+              muted={isMuted}
               loop
               autoPlay
               onEnded={() => setIsPlaying(false)}
             />
+            {/* Mute/Unmute Button */}
+            <button
+              onClick={() => setIsMuted(!isMuted)}
+              className="absolute bottom-4 right-4 bg-primary/90 text-background p-3 rounded-full hover:bg-cyan-400 transition shadow-lg z-10"
+              title={isMuted ? "Unmute" : "Mute"}
+            >
+              {isMuted ? '🔇' : '🔊'}
+            </button>
+            {/* Play Overlay */}
             {!isPlaying && (
               <button
                 onClick={togglePlay}
