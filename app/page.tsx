@@ -7,7 +7,6 @@ import ContactForm from "../components/ContactForm";
 export default function Home() {
   // Video Player State
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(true); // NEW: Mute state
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const togglePlay = () => {
@@ -83,38 +82,28 @@ export default function Home() {
           </div>
 
           {/* Right Side - Talking Video Introduction */}
-          <div className="relative overflow-hidden rounded-2xl border border-secondary shadow-2xl shadow-primary/20 group">
+          <div 
+            className="relative overflow-hidden rounded-2xl border border-secondary shadow-2xl shadow-primary/20 group cursor-pointer" 
+            onClick={togglePlay}
+          >
             <video
               ref={videoRef}
               src="/images/working-talk.mp4"
               poster="/images/working.png"
               className="w-full h-[300px] sm:h-[350px] lg:h-[450px] object-cover rounded-2xl"
               playsInline
-              muted={isMuted}
-              loop
-              autoPlay
               onEnded={() => setIsPlaying(false)}
             />
-            {/* Mute/Unmute Button */}
-            <button
-              onClick={() => setIsMuted(!isMuted)}
-              className="absolute bottom-4 right-4 bg-primary/90 text-background p-3 rounded-full hover:bg-cyan-400 transition shadow-lg z-10"
-              title={isMuted ? "Unmute" : "Mute"}
-            >
-              {isMuted ? '🔇' : '🔊'}
-            </button>
-            {/* Play Overlay */}
+            
+            {/* Big Play Button - Only shows when video is paused */}
             {!isPlaying && (
-              <button
-                onClick={togglePlay}
-                className="absolute inset-0 flex items-center justify-center bg-black/40 hover:bg-black/30 transition-all"
-              >
+              <div className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-all">
                 <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg shadow-primary/50">
                   <svg className="w-10 h-10 text-background ml-1" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
-              </button>
+              </div>
             )}
           </div>
         </div>
